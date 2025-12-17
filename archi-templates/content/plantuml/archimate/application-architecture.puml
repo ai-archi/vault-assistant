@@ -1,0 +1,56 @@
+@startuml
+' 使用内置 ArchiMate 宏库
+!include <archimate/Archimate>
+
+'!theme archimate-alternate from <archimate/themes>
+
+title 应用架构示例 - 微服务系统
+
+' 应用层元素
+Application_Component(webPortal, "Web门户")
+Application_Component(mobileApp, "移动应用")
+Application_Component(apiGateway, "API网关")
+
+Application_Component(userService, "用户服务")
+Application_Component(orderService, "订单服务")
+Application_Component(productService, "产品服务")
+Application_Component(paymentService, "支付服务")
+
+Application_Service(userAPI, "用户API")
+Application_Service(orderAPI, "订单API")
+Application_Service(productAPI, "产品API")
+Application_Service(paymentAPI, "支付API")
+
+Application_Function(userAuth, "用户认证")
+Application_Function(orderProcess, "订单处理")
+Application_Function(productSearch, "产品搜索")
+
+Application_DataObject(userData, "用户数据")
+Application_DataObject(orderData, "订单数据")
+Application_DataObject(productData, "产品数据")
+
+' 定义关系
+Rel_Serving(webPortal, apiGateway, "通过")
+Rel_Serving(mobileApp, apiGateway, "通过")
+Rel_Serving(apiGateway, userAPI, "路由到")
+Rel_Serving(apiGateway, orderAPI, "路由到")
+Rel_Serving(apiGateway, productAPI, "路由到")
+Rel_Serving(apiGateway, paymentAPI, "路由到")
+
+Rel_Assignment(userService, userAPI, "提供")
+Rel_Assignment(orderService, orderAPI, "提供")
+Rel_Assignment(productService, productAPI, "提供")
+Rel_Assignment(paymentService, paymentAPI, "提供")
+
+Rel_Assignment(userAuth, userService, "")
+Rel_Assignment(orderProcess, orderService, "")
+Rel_Assignment(productSearch, productService, "")
+
+Rel_Access(userService, userData, "访问")
+Rel_Access(orderService, orderData, "访问")
+Rel_Access(productService, productData, "访问")
+
+Rel_Flow(orderService, paymentService, "调用")
+
+@enduml
+

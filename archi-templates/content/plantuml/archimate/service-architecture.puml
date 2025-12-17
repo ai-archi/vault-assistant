@@ -1,0 +1,64 @@
+@startuml
+' 使用内置 ArchiMate 宏库
+!include <archimate/Archimate>
+
+'!theme archimate-lowsaturation from archimate/themes
+
+title 服务架构示例 - SOA服务编排
+
+' 业务服务层
+Business_Service(orderService, "订单服务")
+Business_Service(paymentService, "支付服务")
+Business_Service(inventoryService, "库存服务")
+Business_Service(notificationService, "通知服务")
+
+' 应用服务层
+Application_Service(orderAPI, "订单API")
+Application_Service(paymentAPI, "支付API")
+Application_Service(inventoryAPI, "库存API")
+Application_Service(notificationAPI, "通知API")
+
+Application_Component(serviceOrchestrator, "服务编排器")
+Application_Component(orderComponent, "订单组件")
+Application_Component(paymentComponent, "支付组件")
+Application_Component(inventoryComponent, "库存组件")
+Application_Component(notificationComponent, "通知组件")
+
+' 技术服务层
+Technology_Service(esbService, "企业服务总线")
+Technology_Service(messageQueue, "消息队列")
+Technology_Service(registryService, "服务注册中心")
+
+Technology_Node(esbNode, "ESB节点")
+Technology_Node(mqNode, "MQ节点")
+Technology_Node(registryNode, "注册中心节点")
+
+' 定义关系
+Rel_Serving(orderService, orderAPI, "通过")
+Rel_Serving(paymentService, paymentAPI, "通过")
+Rel_Serving(inventoryService, inventoryAPI, "通过")
+Rel_Serving(notificationService, notificationAPI, "通过")
+
+Rel_Assignment(orderComponent, orderAPI, "提供")
+Rel_Assignment(paymentComponent, paymentAPI, "提供")
+Rel_Assignment(inventoryComponent, inventoryAPI, "提供")
+Rel_Assignment(notificationComponent, notificationAPI, "提供")
+
+Rel_Serving(serviceOrchestrator, orderComponent, "编排")
+Rel_Serving(serviceOrchestrator, paymentComponent, "编排")
+Rel_Serving(serviceOrchestrator, inventoryComponent, "编排")
+Rel_Serving(serviceOrchestrator, notificationComponent, "编排")
+
+Rel_Serving(esbService, serviceOrchestrator, "支持")
+Rel_Assignment(esbNode, esbService, "")
+Rel_Serving(messageQueue, serviceOrchestrator, "支持")
+Rel_Assignment(mqNode, messageQueue, "")
+Rel_Serving(registryService, serviceOrchestrator, "支持")
+Rel_Assignment(registryNode, registryService, "")
+
+Rel_Flow(orderComponent, paymentComponent, "调用")
+Rel_Flow(orderComponent, inventoryComponent, "调用")
+Rel_Flow(orderComponent, notificationComponent, "调用")
+
+@enduml
+

@@ -2,41 +2,46 @@
 ' 使用内置 ArchiMate 宏库
 !include <archimate/Archimate>
 
-' 可选：选择一个主题
 '!theme archimate-standard from archimate/themes
-'!theme archimate-alternate from archimate/themes
-'!theme archimate-handwriting from archimate/themes
-'!theme archimate-lowsaturation from archimate/themes
-'!theme archimate-saturated from archimate/themes
 
-title ArchiMate 架构图示例
+title 企业架构示例 - 完整分层架构
 
-' 业务层元素
+' 业务层
 Business_Actor(customer, "客户")
-Business_Process(orderProcess, "订单处理流程")
+Business_Process(orderProcess, "订单处理")
 Business_Service(orderService, "订单服务")
+Business_Object(order, "订单")
 
-' 应用层元素
+' 应用层
 Application_Component(webApp, "Web应用")
 Application_Component(orderApp, "订单应用")
 Application_Service(orderAPI, "订单API")
 Application_DataObject(orderData, "订单数据")
 
-' 技术层元素
+' 技术层
 Technology_Node(webServer, "Web服务器")
 Technology_Node(appServer, "应用服务器")
 Technology_Node(dbServer, "数据库服务器")
+Technology_Service(httpService, "HTTP服务")
+Technology_Service(dbService, "数据库服务")
 
-' 定义关系
+' 跨层关系
 Rel_Serving(customer, orderProcess, "发起")
 Rel_Serving(orderProcess, orderService, "使用")
 Rel_Serving(orderService, webApp, "通过")
 Rel_Serving(webApp, orderApp, "调用")
 Rel_Serving(orderApp, orderAPI, "提供")
 Rel_Access(orderApp, orderData, "访问")
+
 Rel_Serving(webApp, webServer, "部署在")
 Rel_Serving(orderApp, appServer, "部署在")
 Rel_Access(orderData, dbServer, "存储于")
+
+Rel_Serving(webServer, httpService, "提供")
+Rel_Serving(dbServer, dbService, "提供")
+
+' 业务对象到应用数据的映射
+Rel_Realization(orderData, order, "实现")
 
 @enduml
 

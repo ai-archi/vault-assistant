@@ -1,0 +1,81 @@
+@startuml
+' 使用内置 ArchiMate 宏库
+!include <archimate/Archimate>
+
+title 安全架构示例 - 身份认证与授权
+
+' =====================
+' 业务层
+' =====================
+Business_Actor(user, "用户")
+Business_Role(adminRole, "管理员角色")
+Business_Role(userRole, "普通用户角色")
+Business_Service(identityService, "身份与访问服务")
+
+Rel_Assignment(adminRole, user)
+Rel_Assignment(userRole, user)
+
+' =====================
+' 应用层
+' =====================
+Application_Component(apiGateway, "API 网关")
+Application_Component(authService, "认证服务")
+Application_Component(authzService, "授权服务")
+Application_Component(protectedApp, "受保护应用")
+
+Application_Service(authAPI, "认证 API")
+Application_Service(authzAPI, "授权 API")
+
+Application_Function(loginFunction, "登录处理")
+Application_Function(tokenValidation, "令牌校验")
+Application_Function(permissionCheck, "权限校验")
+
+Application_DataObject(userCredentials, "用户凭证")
+Application_DataObject(tokenData, "访问令牌")
+Application_DataObject(permissionData, "权限数据")
+
+Rel_Assignment(authService, loginFunction)
+Rel_Assignment(authService, tokenValidation)
+Rel_Assignment(authzService, permissionCheck)
+
+Rel_Serving(authService, authAPI)
+Rel_Serving(authzService, authzAPI)
+
+Rel_Access(loginFunction, userCredentials)
+Rel_Access(tokenValidation, tokenData)
+Rel_Access(permissionCheck, permissionData)
+
+Rel_Flow(apiGateway, authService)
+Rel_Flow(apiGateway, authzService)
+Rel_Flow(apiGateway, protectedApp)
+
+Rel_Realization(authAPI, identityService)
+Rel_Realization(authzAPI, identityService)
+
+' =====================
+' 技术层
+' =====================
+Technology_Node(authServer, "认证服务器")
+Technology_Node(dbServer, "数据库服务器")
+Technology_Node(cacheServer, "缓存服务器")
+
+Technology_Component(ldap, "LDAP")
+Technology_Component(jwt, "JWT 组件")
+Technology_Component(redis, "Redis")
+
+Technology_Service(authTechService, "认证技术服务")
+Technology_Service(dbService, "数据库服务")
+Technology_Service(cacheService, "缓存服务")
+
+Rel_Assignment(ldap, authServer)
+Rel_Assignment(jwt, authServer)
+Rel_Assignment(redis, cacheServer)
+
+Rel_Serving(authTechService, authService)
+Rel_Serving(dbService, authService)
+Rel_Serving(cacheService, authService)
+
+Rel_Serving(dbService, dbServer)
+Rel_Serving(cacheService, cacheServer)
+
+@enduml

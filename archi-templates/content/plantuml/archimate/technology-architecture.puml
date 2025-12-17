@@ -1,0 +1,63 @@
+@startuml
+' 使用内置 ArchiMate 宏库
+!include <archimate/Archimate>
+
+'!theme archimate-saturated from archimate/themes
+
+title 技术架构示例 - 云原生部署
+
+' 技术层元素
+Technology_Node(loadBalancer, "负载均衡器")
+Technology_Node(webServer1, "Web服务器1")
+Technology_Node(webServer2, "Web服务器2")
+Technology_Node(appServer1, "应用服务器1")
+Technology_Node(appServer2, "应用服务器2")
+Technology_Node(dbPrimary, "主数据库")
+Technology_Node(dbReplica, "从数据库")
+Technology_Node(cacheServer, "缓存服务器")
+
+Technology_Component(nginx, "Nginx")
+Technology_Component(tomcat, "Tomcat")
+Technology_Component(mysql, "MySQL")
+Technology_Component(redis, "Redis")
+
+Technology_Service(httpService, "HTTP服务")
+Technology_Service(appService, "应用服务")
+Technology_Service(dbService, "数据库服务")
+Technology_Service(cacheService, "缓存服务")
+
+Technology_Artifact(webApp, "Web应用")
+Technology_Artifact(businessApp, "业务应用")
+Technology_Artifact(database, "数据库")
+
+' 定义关系
+Rel_Serving(httpService, loadBalancer, "")
+Rel_Assignment(nginx, loadBalancer, "")
+Rel_Serving(httpService, webServer1, "")
+Rel_Serving(httpService, webServer2, "")
+
+Rel_Serving(appService, webServer1, "")
+Rel_Serving(appService, webServer2, "")
+Rel_Serving(appService, appServer1, "")
+Rel_Serving(appService, appServer2, "")
+Rel_Assignment(tomcat, appServer1, "")
+Rel_Assignment(tomcat, appServer2, "")
+
+Rel_Realization(webApp, webServer1, "部署在")
+Rel_Realization(webApp, webServer2, "部署在")
+Rel_Realization(businessApp, appServer1, "部署在")
+Rel_Realization(businessApp, appServer2, "部署在")
+
+Rel_Serving(dbService, appServer1, "服务于")
+Rel_Serving(dbService, appServer2, "服务于")
+Rel_Assignment(mysql, dbPrimary, "")
+Rel_Assignment(mysql, dbReplica, "")
+Rel_Access(dbPrimary, database, "管理")
+Rel_Access(dbReplica, dbPrimary, "复制自")
+
+Rel_Serving(cacheService, appServer1, "服务于")
+Rel_Serving(cacheService, appServer2, "服务于")
+Rel_Assignment(redis, cacheServer, "")
+
+@enduml
+

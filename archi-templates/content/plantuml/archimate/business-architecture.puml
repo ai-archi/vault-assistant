@@ -1,0 +1,52 @@
+@startuml
+' 使用内置 ArchiMate 宏库
+!include <archimate/Archimate>
+
+' 可选：选择一个主题
+'!theme archimate-standard from archimate/themes
+
+title 业务架构示例 - 电商订单处理
+
+' 业务层元素
+Business_Actor(customer, "客户")
+Business_Actor(sales, "销售团队")
+Business_Role(customerService, "客服角色")
+
+Business_Process(orderProcess, "订单处理流程")
+Business_Process(paymentProcess, "支付处理流程")
+Business_Process(deliveryProcess, "配送流程")
+
+Business_Function(orderManagement, "订单管理")
+Business_Function(inventoryManagement, "库存管理")
+Business_Function(customerManagement, "客户管理")
+
+Business_Service(orderService, "订单服务")
+Business_Service(paymentService, "支付服务")
+Business_Service(deliveryService, "配送服务")
+
+Business_Object(order, "订单")
+Business_Object(product, "产品")
+Business_Object(customerInfo, "客户信息")
+
+' 定义关系
+Rel_Serving(customer, orderProcess, "发起订单")
+Rel_Serving(sales, customerService, "提供")
+Rel_Assignment(customerService, customerManagement, "")
+
+Rel_Flow(orderProcess, paymentProcess, "")
+Rel_Flow(paymentProcess, deliveryProcess, "")
+
+Rel_Serving(orderService, orderProcess, "支持")
+Rel_Serving(paymentService, paymentProcess, "支持")
+Rel_Serving(deliveryService, deliveryProcess, "支持")
+
+Rel_Assignment(orderManagement, orderService, "")
+Rel_Assignment(inventoryManagement, orderService, "")
+Rel_Assignment(customerManagement, customerService, "")
+
+Rel_Access(orderProcess, order, "创建")
+Rel_Access(orderProcess, product, "查询")
+Rel_Access(customerManagement, customerInfo, "管理")
+
+@enduml
+
