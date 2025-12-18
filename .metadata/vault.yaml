@@ -12,5 +12,14 @@ description: |
   AI 增强类型的 Vault 主要用于存储和管理 AI 增强命令，帮助用户通过 AI 助手
   进行文档分析、优化、重构等操作。
 
+# Git 仓库信息（如果是从 git clone 的 vault）
+remote:
+  url: 'https://github.com/ai-archi/vault-assistant'  # Git 仓库 URL，例如: https://github.com/user/repo.git 或 git@github.com:user/repo.git
+  branch: main  # 分支名称，默认为 main
+  sync: manual  # 同步策略: auto（自动）或 manual（手动）
+
+# 权限控制
+readonly: true  # 是否只读，从 git clone 的 vault 默认为 true，本地创建的默认为 false
+
 createdAt: 2025-11-22T00:00:00.000Z
 updatedAt: 2025-11-22T00:00:00.000Z

@@ -26,8 +26,8 @@ steps:
       方案路径：{{ solutionPath }}
       
       当前步骤表单数据：
-      {% for key, value in formData %}
-      - {{ key }}: {{ value }}
+      {% for item in formDataItems %}
+      - {{ item.key }}: {{ item.value }}
       {% endfor %}
       
       请基于以上信息，生成一个详细的提案，包括：
@@ -59,8 +59,8 @@ steps:
       方案路径：{{ solutionPath }}
       
       当前步骤表单数据：
-      {% for key, value in formData %}
-      - {{ key }}: {{ value }}
+      {% for item in formDataItems %}
+      - {{ item.key }}: {{ item.value }}
       {% endfor %}
       
       请基于以上信息，对提案进行审查，并提供：
@@ -93,8 +93,8 @@ steps:
       方案路径：{{ solutionPath }}
       
       当前步骤表单数据：
-      {% for key, value in formData %}
-      - {{ key }}: {{ value }}
+      {% for item in formDataItems %}
+      - {{ item.key }}: {{ item.value }}
       {% endfor %}
       
       请基于以上信息，生成实现方案，包括：
@@ -127,8 +127,8 @@ steps:
       方案路径：{{ solutionPath }}
       
       当前步骤表单数据：
-      {% for key, value in formData %}
-      - {{ key }}: {{ value }}
+      {% for item in formDataItems %}
+      - {{ item.key }}: {{ item.value }}
       {% endfor %}
       
       请基于以上信息，生成测试验证方案，包括：
@@ -156,8 +156,8 @@ steps:
       方案路径：{{ solutionPath }}
       
       当前步骤表单数据：
-      {% for key, value in formData %}
-      - {{ key }}: {{ value }}
+      {% for item in formDataItems %}
+      - {{ item.key }}: {{ item.value }}
       {% endfor %}
       
       请基于以上信息，生成文档更新方案，包括：

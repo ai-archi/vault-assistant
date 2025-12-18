@@ -1,0 +1,564 @@
+name: architecture-repository-template
+description: 企业架构景观库标准目录结构（TOGAF架构仓库）
+type: dir-structure
+structure:
+  # 根 README
+  - type: file
+    name: README.md
+    description: 架构景观库入口说明
+    template: demo-vault-assistant/archi-templates/content/markdown/project-readme.md
+
+  # 1. 架构愿景
+  - type: directory
+    name: ArchitectureVision
+    description: 架构愿景与目标
+    children:
+      - type: file
+        name: VisionStatement.md
+        description: 架构愿景声明
+        template: demo-vault-assistant/archi-templates/content/markdown/architecture-overview.md
+      - type: file
+        name: ArchitectureGoals.md
+        description: 架构目标
+        template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: file
+        name: Stakeholders.md
+        description: 利益相关者分析
+        template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: file
+        name: ScopeAndConstraints.md
+        description: 范围与约束
+        template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: file
+        name: ArchitecturePrinciples.md
+        description: 架构原则
+        template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: directory
+        name: Diagrams
+        description: 架构愿景图表
+        children:
+          - type: file
+            name: SolutionContext.puml
+            description: 解决方案上下文图
+            template: demo-vault-assistant/archi-templates/content/plantuml/archimate/enterprise-architecture.puml
+
+  # 2. 业务架构
+  - type: directory
+    name: BusinessArchitecture
+    description: 业务架构层
+    children:
+      - type: directory
+        name: CapabilityMap
+        description: 能力地图
+        children:
+          - type: file
+            name: CapabilityMap.md
+            description: 业务能力地图
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+          - type: file
+            name: CapabilityHeatmap.png
+            description: 能力热力图
+      - type: directory
+        name: ValueStreams
+        description: 价值流
+        children:
+          - type: file
+            name: AI-Interaction-ValueStream.puml
+            description: AI交互价值流图
+            template: demo-vault-assistant/archi-templates/content/plantuml/archimate/business-architecture.puml
+      - type: directory
+        name: BusinessProcesses
+        description: 业务流程
+        children:
+          - type: file
+            name: HighLevelProcess.bpmn
+            description: 高层业务流程（BPMN）
+      - type: directory
+        name: BusinessObjects
+        description: 业务对象
+        children:
+          - type: file
+            name: BusinessGlossary.md
+            description: 业务术语表
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: directory
+        name: Organization
+        description: 组织架构
+        children:
+          - type: file
+            name: RolesAndActors.md
+            description: 角色与参与者
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+
+  # 3. 应用架构
+  - type: directory
+    name: ApplicationArchitecture
+    description: 应用架构层
+    children:
+      - type: directory
+        name: ABB
+        description: 应用构建块（Application Building Blocks）
+        children:
+          - type: file
+            name: AI-Agent-Service.abb.md
+            description: AI代理服务构建块
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+          - type: file
+            name: Knowledge-Retrieval-Service.abb.md
+            description: 知识检索服务构建块
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+          - type: file
+            name: Local-System-Core.abb.md
+            description: 本地系统核心构建块
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+          - type: file
+            name: Multi-Channel-UI.abb.md
+            description: 多渠道UI构建块
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: directory
+        name: ApplicationComponents
+        description: 应用组件目录
+        children:
+          - type: file
+            name: ComponentCatalog.md
+            description: 组件目录
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: directory
+        name: ApplicationServices
+        description: 应用服务目录
+        children:
+          - type: file
+            name: ServiceCatalog.md
+            description: 服务目录
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: directory
+        name: Interfaces
+        description: 接口定义
+        children:
+          - type: file
+            name: InterfaceCatalog.md
+            description: 接口目录
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+          - type: file
+            name: API-Style-Guidelines.md
+            description: API风格指南
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: directory
+        name: Diagrams
+        description: 应用架构图表
+        children:
+          - type: file
+            name: ApplicationCommunication.puml
+            description: 应用通信图
+            template: demo-vault-assistant/archi-templates/content/plantuml/archimate/application-architecture.puml
+          - type: file
+            name: DependencyView.puml
+            description: 依赖关系视图
+            template: demo-vault-assistant/archi-templates/content/plantuml/archimate/application-architecture.puml
+          - type: file
+            name: LayeredView.puml
+            description: 分层视图
+            template: demo-vault-assistant/archi-templates/content/plantuml/archimate/application-architecture.puml
+
+  # 4. 数据架构
+  - type: directory
+    name: DataArchitecture
+    description: 数据架构层
+    children:
+      - type: directory
+        name: DataDomains
+        description: 数据域
+        children:
+          - type: file
+            name: DomainModel.md
+            description: 领域模型
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: directory
+        name: LogicalDataModel
+        description: 逻辑数据模型
+        children:
+          - type: file
+            name: LogicalEntities.puml
+            description: 逻辑实体图
+            template: demo-vault-assistant/archi-templates/content/plantuml/archimate/application-architecture.puml
+      - type: directory
+        name: DataFlows
+        description: 数据流
+        children:
+          - type: file
+            name: DataFlowDiagram.puml
+            description: 数据流图
+            template: demo-vault-assistant/archi-templates/content/plantuml/archimate/application-architecture.puml
+      - type: directory
+        name: DataLifecycle
+        description: 数据生命周期
+        children:
+          - type: file
+            name: DataLifecycle.md
+            description: 数据生命周期管理
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: directory
+        name: DataGovernance
+        description: 数据治理
+        children:
+          - type: file
+            name: DataOwnershipMatrix.xlsx
+            description: 数据所有权矩阵
+          - type: file
+            name: DataClassification.md
+            description: 数据分类
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+
+  # 5. 技术架构
+  - type: directory
+    name: TechnologyArchitecture
+    description: 技术架构层
+    children:
+      - type: directory
+        name: TechnologyABB
+        description: 技术构建块（Technology Building Blocks）
+        children:
+          - type: file
+            name: RuntimePlatform.abb.md
+            description: 运行时平台构建块
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+          - type: file
+            name: CommunicationInfrastructure.abb.md
+            description: 通信基础设施构建块
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+          - type: file
+            name: StoragePlatform.abb.md
+            description: 存储平台构建块
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: directory
+        name: TechnologyStack
+        description: 技术栈
+        children:
+          - type: file
+            name: ApprovedTechnologyStack.md
+            description: 批准的技术栈
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: directory
+        name: PlatformDecomposition
+        description: 平台分解
+        children:
+          - type: file
+            name: PlatformDecomposition.puml
+            description: 平台分解图
+            template: demo-vault-assistant/archi-templates/content/plantuml/archimate/technology-architecture.puml
+      - type: directory
+        name: SecurityArchitecture
+        description: 安全架构
+        children:
+          - type: file
+            name: SecurityPrinciples.md
+            description: 安全原则
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+          - type: file
+            name: IdentityAndAccess.md
+            description: 身份与访问管理
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: directory
+        name: InfrastructureViews
+        description: 基础设施视图
+        children:
+          - type: file
+            name: LogicalDeployment.puml
+            description: 逻辑部署图
+            template: demo-vault-assistant/archi-templates/content/plantuml/archimate/technology-architecture.puml
+
+  # 6. 解决方案架构
+  - type: directory
+    name: SolutionArchitecture
+    description: 解决方案架构
+    children:
+      - type: directory
+        name: Solutions
+        description: 具体解决方案
+        children:
+          - type: directory
+            name: AI-Desktop-App
+            description: AI桌面应用解决方案
+            children:
+              - type: file
+                name: SolutionOverview.md
+                description: 解决方案概览
+                template: demo-vault-assistant/archi-templates/content/markdown/architecture-overview.md
+              - type: file
+                name: ABB-SBB-Mapping.md
+                description: ABB到SBB映射
+                template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+              - type: file
+                name: TechnologySelection.md
+                description: 技术选型
+                template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+              - type: file
+                name: DeploymentDiagram.puml
+                description: 部署图
+                template: demo-vault-assistant/archi-templates/content/plantuml/archimate/technology-architecture.puml
+              - type: file
+                name: RisksAndTradeoffs.md
+                description: 风险与权衡
+                template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+          - type: directory
+            name: AI-Mobile-App
+            description: AI移动应用解决方案
+            children:
+              - type: file
+                name: SolutionOverview.md
+                description: 解决方案概览
+                template: demo-vault-assistant/archi-templates/content/markdown/architecture-overview.md
+              - type: file
+                name: ABB-SBB-Mapping.md
+                description: ABB到SBB映射
+                template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+              - type: file
+                name: DeploymentDiagram.puml
+                description: 部署图
+                template: demo-vault-assistant/archi-templates/content/plantuml/archimate/technology-architecture.puml
+          - type: directory
+            name: AI-Harmony-App
+            description: AI Harmony应用解决方案
+            children:
+              - type: file
+                name: SolutionOverview.md
+                description: 解决方案概览
+                template: demo-vault-assistant/archi-templates/content/markdown/architecture-overview.md
+              - type: file
+                name: ABB-SBB-Mapping.md
+                description: ABB到SBB映射
+                template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+              - type: file
+                name: DeploymentDiagram.puml
+                description: 部署图
+                template: demo-vault-assistant/archi-templates/content/plantuml/archimate/technology-architecture.puml
+      - type: directory
+        name: Roadmaps
+        description: 实施路线图
+        children:
+          - type: file
+            name: ImplementationRoadmap.md
+            description: 实施路线图
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: directory
+        name: Migration
+        description: 迁移架构
+        children:
+          - type: file
+            name: TransitionArchitecture.md
+            description: 过渡架构
+            template: demo-vault-assistant/archi-templates/content/markdown/architecture-overview.md
+
+  # 7. 架构景观
+  - type: directory
+    name: ArchitectureLandscape
+    description: 架构景观（基线、目标、过渡）
+    children:
+      - type: directory
+        name: Baseline
+        description: 基线架构
+        children:
+          - type: directory
+            name: "2024"
+            description: 2024年基线
+            children:
+              - type: file
+                name: Overview.md
+                description: 基线概览
+                template: demo-vault-assistant/archi-templates/content/markdown/architecture-overview.md
+              - type: file
+                name: Snapshot.puml
+                description: 架构快照
+                template: demo-vault-assistant/archi-templates/content/plantuml/archimate/enterprise-architecture.puml
+          - type: directory
+            name: "2025"
+            description: 2025年基线
+            children:
+              - type: file
+                name: Overview.md
+                description: 基线概览
+                template: demo-vault-assistant/archi-templates/content/markdown/architecture-overview.md
+      - type: directory
+        name: Target
+        description: 目标架构
+        children:
+          - type: directory
+            name: "2026"
+            description: 2026年目标
+            children:
+              - type: file
+                name: Overview.md
+                description: 目标架构概览
+                template: demo-vault-assistant/archi-templates/content/markdown/architecture-overview.md
+              - type: file
+                name: TargetArchitecture.puml
+                description: 目标架构图
+                template: demo-vault-assistant/archi-templates/content/plantuml/archimate/enterprise-architecture.puml
+      - type: directory
+        name: Transition
+        description: 过渡架构
+        children:
+          - type: directory
+            name: T1
+            description: 过渡阶段1
+            children:
+              - type: file
+                name: TransitionView.puml
+                description: 过渡视图
+                template: demo-vault-assistant/archi-templates/content/plantuml/archimate/enterprise-architecture.puml
+          - type: directory
+            name: T2
+            description: 过渡阶段2
+            children:
+              - type: file
+                name: TransitionView.puml
+                description: 过渡视图
+                template: demo-vault-assistant/archi-templates/content/plantuml/archimate/enterprise-architecture.puml
+      - type: file
+        name: LandscapeOverview.md
+        description: 景观概览
+        template: demo-vault-assistant/archi-templates/content/markdown/architecture-overview.md
+
+  # 8. 参考库
+  - type: directory
+    name: ReferenceLibrary
+    description: 参考库
+    children:
+      - type: directory
+        name: ReferenceArchitectures
+        description: 参考架构
+        children:
+          - type: file
+            name: AI-Platform-Reference.md
+            description: AI平台参考架构
+            template: demo-vault-assistant/archi-templates/content/markdown/architecture-overview.md
+      - type: directory
+        name: Patterns
+        description: 架构模式
+        children:
+          - type: file
+            name: AI-Service-Pattern.md
+            description: AI服务模式
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+          - type: file
+            name: RAG-Pattern.md
+            description: RAG模式
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+          - type: file
+            name: Multi-Channel-UI-Pattern.md
+            description: 多渠道UI模式
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: directory
+        name: Templates
+        description: 模板库
+        children:
+          - type: file
+            name: ABB-Template.md
+            description: ABB模板
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+          - type: file
+            name: SBB-Template.md
+            description: SBB模板
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+          - type: file
+            name: Architecture-Decision-Template.md
+            description: 架构决策模板
+            template: demo-vault-assistant/archi-templates/content/markdown/adr-template.md
+      - type: directory
+        name: ExternalReferences
+        description: 外部参考
+        children:
+          - type: file
+            name: TOGAF-Links.md
+            description: TOGAF相关链接
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+
+  # 9. 标准信息库
+  - type: directory
+    name: StandardsInformationBase
+    description: 标准信息库
+    children:
+      - type: file
+        name: TechnologyStandards.md
+        description: 技术标准
+        template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: file
+        name: CodingStandards.md
+        description: 编码标准
+        template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: file
+        name: SecurityStandards.md
+        description: 安全标准
+        template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: file
+        name: APIStandards.md
+        description: API标准
+        template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: file
+        name: ComplianceRules.md
+        description: 合规规则
+        template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+
+  # 10. 架构治理
+  - type: directory
+    name: ArchitectureGovernance
+    description: 架构治理
+    children:
+      - type: directory
+        name: ArchitectureDecisions
+        description: 架构决策记录（ADR）
+        children:
+          - type: file
+            name: ADR-001-Why-Service-Oriented-AI.md
+            description: ADR-001 为什么选择面向服务的AI架构
+            template: demo-vault-assistant/archi-templates/content/markdown/adr-template.md
+          - type: file
+            name: ADR-002-LangChain-Selection.md
+            description: ADR-002 LangChain选择
+            template: demo-vault-assistant/archi-templates/content/markdown/adr-template.md
+          - type: file
+            name: ADR-003-Cross-Platform-Strategy.md
+            description: ADR-003 跨平台策略
+            template: demo-vault-assistant/archi-templates/content/markdown/adr-template.md
+      - type: directory
+        name: ComplianceAssessments
+        description: 合规评估
+        children:
+          - type: file
+            name: ArchitectureCompliance.md
+            description: 架构合规性评估
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: directory
+        name: ReviewRecords
+        description: 评审记录
+        children:
+          - type: file
+            name: ArchitectureReview-2025-01.md
+            description: 架构评审记录
+            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: file
+        name: ExceptionLogs.md
+        description: 例外日志
+        template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+
+  # 11. 架构能力
+  - type: directory
+    name: ArchitectureCapability
+    description: 架构能力
+    children:
+      - type: file
+        name: ArchitectureRoles.md
+        description: 架构角色定义
+        template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: file
+        name: ArchitectureProcess.md
+        description: 架构流程
+        template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: file
+        name: Tooling.md
+        description: 工具链
+        template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+      - type: file
+        name: SkillsMatrix.xlsx
+        description: 技能矩阵
+
