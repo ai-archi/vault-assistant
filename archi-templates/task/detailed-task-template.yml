@@ -26,9 +26,13 @@ steps:
       方案路径：{{ solutionPath }}
       
       当前步骤表单数据：
+      {% if formDataItems %}
       {% for item in formDataItems %}
       - {{ item.key }}: {{ item.value }}
       {% endfor %}
+      {% else %}
+      （暂无表单数据）
+      {% endif %}
       
       请基于以上信息，生成一个详细的提案，包括：
       1. 需求分析
@@ -59,9 +63,13 @@ steps:
       方案路径：{{ solutionPath }}
       
       当前步骤表单数据：
+      {% if formDataItems %}
       {% for item in formDataItems %}
       - {{ item.key }}: {{ item.value }}
       {% endfor %}
+      {% else %}
+      （暂无表单数据）
+      {% endif %}
       
       请基于以上信息，对提案进行审查，并提供：
       1. 提案的优点
@@ -93,9 +101,13 @@ steps:
       方案路径：{{ solutionPath }}
       
       当前步骤表单数据：
+      {% if formDataItems %}
       {% for item in formDataItems %}
       - {{ item.key }}: {{ item.value }}
       {% endfor %}
+      {% else %}
+      （暂无表单数据）
+      {% endif %}
       
       请基于以上信息，生成实现方案，包括：
       1. 技术实现方案
@@ -127,9 +139,13 @@ steps:
       方案路径：{{ solutionPath }}
       
       当前步骤表单数据：
+      {% if formDataItems %}
       {% for item in formDataItems %}
       - {{ item.key }}: {{ item.value }}
       {% endfor %}
+      {% else %}
+      （暂无表单数据）
+      {% endif %}
       
       请基于以上信息，生成测试验证方案，包括：
       1. 测试用例设计
@@ -156,9 +172,13 @@ steps:
       方案路径：{{ solutionPath }}
       
       当前步骤表单数据：
+      {% if formDataItems %}
       {% for item in formDataItems %}
       - {{ item.key }}: {{ item.value }}
       {% endfor %}
+      {% else %}
+      （暂无表单数据）
+      {% endif %}
       
       请基于以上信息，生成文档更新方案，包括：
       1. 需要更新的文档列表

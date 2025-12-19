@@ -20,16 +20,20 @@ steps:
           required: false
     prompt: |
       你是一个专业的系统架构师，需要基于以下信息起草提案：
-      
+
       任务名称：{{ task.name }}
       任务描述：{{ task.description }}
       方案路径：{{ solutionPath }}
-      
+
       当前步骤表单数据：
+      {% if formDataItems %}
       {% for item in formDataItems %}
       - {{ item.key }}: {{ item.value }}
       {% endfor %}
-      
+      {% else %}
+      （暂无表单数据）
+      {% endif %}
+
       请基于以上信息，生成一个详细的提案，包括：
       1. 需求分析
       2. 技术方案
@@ -54,15 +58,19 @@ steps:
           required: false
     prompt: |
       你是一个专业的系统架构审查专家，需要审查以下提案：
-      
+
       任务名称：{{ task.name }}
       方案路径：{{ solutionPath }}
-      
+
       当前步骤表单数据：
+      {% if formDataItems %}
       {% for item in formDataItems %}
       - {{ item.key }}: {{ item.value }}
       {% endfor %}
-      
+      {% else %}
+      （暂无表单数据）
+      {% endif %}
+
       请基于以上信息，对提案进行审查，并提供：
       1. 提案的优点
       2. 存在的问题
@@ -88,15 +96,19 @@ steps:
           required: false
     prompt: |
       你是一个专业的软件开发工程师，需要基于以下信息实现任务：
-      
+
       任务名称：{{ task.name }}
       方案路径：{{ solutionPath }}
-      
+
       当前步骤表单数据：
+      {% if formDataItems %}
       {% for item in formDataItems %}
       - {{ item.key }}: {{ item.value }}
       {% endfor %}
-      
+      {% else %}
+      （暂无表单数据）
+      {% endif %}
+
       请基于以上信息，生成实现方案，包括：
       1. 技术实现方案
       2. 代码文件结构
@@ -117,15 +129,19 @@ steps:
           required: false
     prompt: |
       你是一个专业的文档管理专家，需要基于以下信息更新文档：
-      
+
       任务名称：{{ task.name }}
       方案路径：{{ solutionPath }}
-      
+
       当前步骤表单数据：
+      {% if formDataItems %}
       {% for item in formDataItems %}
       - {{ item.key }}: {{ item.value }}
       {% endfor %}
-      
+      {% else %}
+      （暂无表单数据）
+      {% endif %}
+
       请基于以上信息，生成文档更新方案，包括：
       1. 需要更新的文档列表
       2. 每个文档的更新内容
