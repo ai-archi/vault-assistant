@@ -1,0 +1,12 @@
+C4Context
+    title {{systemName}} 系统上下文图
+    
+    Person(user, "{{userLabel}}", "{{userDescription}}")
+    System(system, "{{systemName}}", "{{systemDescription}}")
+    System_Ext({{externalSystem1}}, "{{externalSystem1Label}}", "{{externalSystem1Description}}")
+    System_Ext({{externalSystem2}}, "{{externalSystem2Label}}", "{{externalSystem2Description}}")
+    
+    Rel(user, system, "{{userInteraction}}")
+    Rel(system, {{externalSystem1}}, "{{systemInteraction1}}")
+    Rel(system, {{externalSystem2}}, "{{systemInteraction2}}")
+

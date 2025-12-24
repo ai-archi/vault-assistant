@@ -1,0 +1,17 @@
+C4Component
+    title {{containerLabel}} 组件图
+    
+    Container_Boundary({{containerName}}, "{{containerLabel}}", "{{containerTechnology}}", "{{containerDescription}}") {
+        Component({{component1}}, "{{component1Label}}", "{{component1Technology}}", "{{component1Description}}")
+        Component({{component2}}, "{{component2Label}}", "{{component2Technology}}", "{{component2Description}}")
+        Component({{component3}}, "{{component3Label}}", "{{component3Technology}}", "{{component3Description}}")
+        ComponentDb({{component4}}, "{{component4Label}}", "{{component4Technology}}", "{{component4Description}}")
+    }
+    
+    Container({{externalContainer1}}, "{{externalContainer1Label}}", "{{externalContainer1Technology}}", "{{externalContainer1Description}}")
+    
+    Rel({{component1}}, {{component2}}, "{{componentInteraction1}}")
+    Rel({{component2}}, {{component3}}, "{{componentInteraction2}}")
+    Rel({{component2}}, {{component4}}, "{{componentInteraction3}}")
+    Rel({{component1}}, {{externalContainer1}}, "{{externalInteraction}}")
+
