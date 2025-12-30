@@ -6,7 +6,7 @@ structure:
   - type: file
     name: README.md
     description: C4模型架构文档入口说明
-    template: demo-vault-assistant/archi-templates/content/markdown/project-readme.md
+    template: vault-assistant/archi-templates/content/markdown/project-readme.md
 
   # 1. 系统上下文层 (Level 1)
   - type: directory
@@ -16,15 +16,15 @@ structure:
       - type: file
         name: system-context.md
         description: 系统上下文图说明文档
-        template: demo-vault-assistant/archi-templates/content/c4-model/system-context.md
+        template: vault-assistant/archi-templates/content/c4-model/system-context.md
       - type: file
         name: system-context.mmd
         description: 系统上下文图（Mermaid）
-        template: demo-vault-assistant/archi-templates/content/c4-model/system-context.mmd
+        template: vault-assistant/archi-templates/content/c4-model/system-context.mmd
       - type: file
         name: stakeholders.md
         description: 利益相关者分析
-        template: demo-vault-assistant/archi-templates/content/c4-model/stakeholders.md
+        template: vault-assistant/archi-templates/content/c4-model/stakeholders.md
 
   # 2. 容器层 (Level 2)
   - type: directory
@@ -34,19 +34,19 @@ structure:
       - type: file
         name: container-diagram.md
         description: 容器图说明文档
-        template: demo-vault-assistant/archi-templates/content/c4-model/container-diagram.md
+        template: vault-assistant/archi-templates/content/c4-model/container-diagram.md
       - type: file
         name: container-diagram.mmd
         description: 容器图（Mermaid）
-        template: demo-vault-assistant/archi-templates/content/c4-model/container-diagram.mmd
+        template: vault-assistant/archi-templates/content/c4-model/container-diagram.mmd
       - type: file
         name: container-list.md
         description: 容器清单
-        template: demo-vault-assistant/archi-templates/content/c4-model/container-list.md
+        template: vault-assistant/archi-templates/content/c4-model/container-list.md
       - type: file
         name: deployment-view.md
         description: 部署视图
-        template: demo-vault-assistant/archi-templates/content/c4-model/deployment-view.md
+        template: vault-assistant/archi-templates/content/c4-model/deployment-view.md
 
   # 3. 组件层 (Level 3)
   - type: directory
@@ -56,7 +56,7 @@ structure:
       - type: file
         name: README.md
         description: 组件层说明文档
-        template: demo-vault-assistant/archi-templates/content/c4-model/component-readme.md
+        template: vault-assistant/archi-templates/content/c4-model/component-readme.md
       - type: directory
         name: example-container
         description: 示例容器组件图（请根据实际容器名称重命名）
@@ -64,31 +64,31 @@ structure:
           - type: file
             name: README.md
             description: 容器组件说明
-            template: demo-vault-assistant/archi-templates/content/markdown/design-overview.md
+            template: vault-assistant/archi-templates/content/markdown/design-overview.md
           - type: file
             name: component-diagram.mmd
             description: 组件图（Mermaid）
-            template: demo-vault-assistant/archi-templates/content/c4-model/component-diagram.mmd
+            template: vault-assistant/archi-templates/content/c4-model/component-diagram.mmd
           - type: file
             name: components.md
             description: 组件清单
-            template: demo-vault-assistant/archi-templates/content/c4-model/components.md
+            template: vault-assistant/archi-templates/content/c4-model/components.md
           - type: file
             name: interfaces.md
             description: 接口定义
-            template: demo-vault-assistant/archi-templates/content/c4-model/interfaces.md
+            template: vault-assistant/archi-templates/content/c4-model/interfaces.md
           - type: file
             name: package-structure.md
             description: 包结构说明
-            template: demo-vault-assistant/archi-templates/content/c4-model/package-structure.md
+            template: vault-assistant/archi-templates/content/c4-model/package-structure.md
           - type: file
             name: key-classes.md
             description: 关键类说明
-            template: demo-vault-assistant/archi-templates/content/c4-model/key-classes.md
+            template: vault-assistant/archi-templates/content/c4-model/key-classes.md
           - type: file
             name: sequence.md
             description: 序列图说明
-            template: demo-vault-assistant/archi-templates/content/c4-model/sequence.md
+            template: vault-assistant/archi-templates/content/c4-model/sequence.md
 
   # 4. 横切关注点
   - type: directory
@@ -98,23 +98,23 @@ structure:
       - type: file
         name: security.md
         description: 安全架构
-        template: demo-vault-assistant/archi-templates/content/c4-model/security.md
+        template: vault-assistant/archi-templates/content/c4-model/security.md
       - type: file
         name: performance.md
         description: 性能架构
-        template: demo-vault-assistant/archi-templates/content/c4-model/performance.md
+        template: vault-assistant/archi-templates/content/c4-model/performance.md
       - type: file
         name: availability.md
         description: 可用性架构
-        template: demo-vault-assistant/archi-templates/content/c4-model/availability.md
+        template: vault-assistant/archi-templates/content/c4-model/availability.md
       - type: file
         name: scalability.md
         description: 可扩展性架构
-        template: demo-vault-assistant/archi-templates/content/c4-model/scalability.md
+        template: vault-assistant/archi-templates/content/c4-model/scalability.md
       - type: file
         name: observability.md
         description: 可观测性架构
-        template: demo-vault-assistant/archi-templates/content/c4-model/observability.md
+        template: vault-assistant/archi-templates/content/c4-model/observability.md
 
   # 5. 架构决策
   - type: directory
@@ -124,15 +124,15 @@ structure:
       - type: file
         name: adr-0001-technology-selection.md
         description: ADR-0001 技术选型决策
-        template: demo-vault-assistant/archi-templates/content/markdown/adr-template.md
+        template: vault-assistant/archi-templates/content/markdown/adr-template.md
       - type: file
         name: adr-0002-architecture-style.md
         description: ADR-0002 架构风格决策
-        template: demo-vault-assistant/archi-templates/content/markdown/adr-template.md
+        template: vault-assistant/archi-templates/content/markdown/adr-template.md
       - type: file
         name: adr-template.md
         description: ADR模板
-        template: demo-vault-assistant/archi-templates/content/markdown/adr-template.md
+        template: vault-assistant/archi-templates/content/markdown/adr-template.md
 
   # 6. 术语表
   - type: directory
@@ -142,5 +142,5 @@ structure:
       - type: file
         name: glossary.md
         description: 架构术语表
-        template: demo-vault-assistant/archi-templates/content/c4-model/glossary.md
+        template: vault-assistant/archi-templates/content/c4-model/glossary.md
 
