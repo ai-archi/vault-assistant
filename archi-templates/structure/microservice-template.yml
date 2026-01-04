@@ -239,6 +239,6 @@ structure:
     description: 架构决策记录（ADR）
     children:
       - type: file
-        name: ADR-0001-template.md
-        description: ADR 模板文件/示例
+        name: ADR-YYYYMMDD-decision-title.md
+        description: ADR 示例（命名格式：ADR-日期-决策标题，如 ADR-20240101-technology-selection.md）
         template: vault-assistant/archi-templates/content/markdown/adr-template.md
